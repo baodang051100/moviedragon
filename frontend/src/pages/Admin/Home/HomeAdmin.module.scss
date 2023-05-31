@@ -1,0 +1,10 @@
+.home {
+    position: relative;
+    display: flex;
+    .sidebar {
+        flex: 0.1;
+    }
+    .element {
+        flex: 0.9;
+    }
+}

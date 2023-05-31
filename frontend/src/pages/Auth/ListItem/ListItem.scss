@@ -1,0 +1,100 @@
+.listCard {
+    .listImage {
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        width: 100%;
+        height: 30vh;
+        border: 1px solid black;
+        cursor: pointer;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s ease-in-out;
+            transform-origin: right;
+        }
+        .listWatch {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s;
+            opacity: 0;
+            z-index: 0;
+        }
+        .listAction {
+            position: absolute;
+            right: 1rem;
+            width: 15%;
+            height: 100%;
+            z-index: 2;
+            li {
+                position: relative;
+                list-style: none;
+                width: 2.5rem;
+                height: 2.5rem;
+                background: rgb(20, 20, 20);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0.25rem;
+                border-radius: 0.25rem;
+                transform: translateX(5.5rem);
+                transition: transform 0.5s;
+                color: white;
+                span {
+                    position: absolute;
+                    right: 3.125rem;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    white-space: nowrap;
+                    background-color: #fff;
+                    color: #333;
+                    font-weight: 500;
+                    font-size: 0.8rem;
+                    padding: 0.5rem 1rem;
+                    border-radius: 0.25rem;
+                    pointer-events: none;
+                    opacity: 0;
+                }
+            }
+            & :hover {
+                background: #ff2020;
+                color: #fff;
+                span {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+.listCard .listImage:hover img {
+    transform: scale(1.2);
+    opacity: 0.3;
+}
+.listCard .listImage:hover .listWatch {
+    transform: scale(5);
+    opacity: 1;
+}
+.listCard .movieContent:hover {
+    transform: scaleY(1);
+}
+
+.listCard .listImage:hover .listAction li {
+    transform: translateX(0px);
+}
+
+.listCard .listImage:hover .listAction li:nth-child(2) {
+    transition-delay: 0.15s;
+}
+
+.listCard .listImage:hover .listAction li:nth-child(3) {
+    transition-delay: 0.3s;
+}

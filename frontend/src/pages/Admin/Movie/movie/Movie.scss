@@ -1,0 +1,100 @@
+.movieAdmin {
+    flex: 1;
+    padding: 2rem;
+    .movieTitleContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        a {
+            text-decoration: none;
+        }
+        .movieAddButton {
+            margin: 0 1rem;
+        }
+    }
+    .movieTop {
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+        .movieTopLeft,
+        .movieTopRight {
+            flex: 1;
+        }
+        .movieTopRight {
+            padding: 2rem;
+            margin: 2rem;
+            -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+            box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+            .movieInfoTop {
+                display: flex;
+                align-items: center;
+                .movieInfoImg {
+                    width: 4rem;
+                    height: 4rem;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    margin-right: 2rem;
+                }
+                .movieName {
+                    font-weight: 600;
+                }
+            }
+            .movieInfoBottom {
+                margin-top: 1rem;
+                .movieInfoItem {
+                    width: 150px;
+                    display: flex;
+                    justify-content: space-between;
+                    .movieInfoKey {
+                        margin-right: 20px;
+                    }
+                    .movieInfoValue {
+                        font-weight: 300;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.movieForm {
+    display: flex;
+    justify-content: space-between;
+    .movieFormLeft {
+        display: flex;
+        flex-direction: column;
+    }
+    .movieFormLeft > label {
+        color: gray;
+    }
+
+    .movieFormLeft > input {
+        margin-bottom: 1rem;
+        border: none;
+        padding: 0.5rem;
+        border-bottom: 1px solid gray;
+        cursor: pointer;
+    }
+
+    .movieFormLeft > select {
+        margin-bottom: 1rem;
+    }
+}
+.movieFormRight {
+    display: flex;
+    justify-content: space-between;
+    .movieUpload {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        label {
+            text-align: left;
+        }
+    }
+}
+.activeButton {
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    padding: 1rem;
+}

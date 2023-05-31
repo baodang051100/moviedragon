@@ -1,0 +1,133 @@
+a {
+    text-decoration: none;
+}
+.container {
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 150vh;
+    background: url("https://r4.wallpaperflare.com/wallpaper/1023/915/631/nasa-space-suit-digital-art-space-wallpaper-d9b0d87dd1fadddb462798dfa0c1e69d.jpg")
+        no-repeat;
+    background-position: center;
+    background-size: cover;
+    .register {
+        position: relative;
+        width: 30vw;
+        height: 100vh;
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        border-radius: 1.25rem;
+        backdrop-filter: blur(0.938rem);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .title {
+            font-size: 2rem;
+            text-align: center;
+            color: #eee;
+        }
+        form {
+            .inputBox {
+                display: flex;
+                flex-direction: column;
+                label {
+                    color: #fff;
+                    font-size: 1.3rem;
+                }
+                input {
+                    width: 95%;
+                    margin: 1.5rem auto;
+                    padding: 1rem;
+                    border-radius: 1.25rem;
+                    font-size: 1rem;
+                    font-family: inherit;
+                    outline: 0;
+                    border: 0;
+                }
+                select {
+                    padding: 0.5rem;
+                    font-family: "Poppins", sans-serif;
+                    border-radius: 0.5rem;
+                    outline: gray;
+                }
+            }
+            .btnRegister {
+                outline: 0;
+                font-size: 1rem;
+                font-family: inherit;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding: 1rem;
+                .btnAction {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                    button {
+                        width: 100%;
+                        border-radius: 1.25rem;
+                    }
+                }
+                .links {
+                    color: #fff;
+                    padding: 1rem;
+                    a {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 64rem) {
+    .container {
+        .register {
+            width: 55vw;
+            height: 70vh;
+            form {
+                .inputBox {
+                    label {
+                        padding: 0 1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 48rem) {
+    .container {
+        .register {
+            width: 70vw;
+            height: 100vh;
+            form {
+                .inputBox {
+                    label {
+                        padding: 0 1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 37.5rem) {
+    .container {
+        .register {
+            width: 80vw;
+            height: 110vh;
+            form {
+                .inputBox {
+                    label {
+                        padding: 0 1rem;
+                    }
+                }
+            }
+        }
+    }
+}

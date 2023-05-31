@@ -1,0 +1,161 @@
+* {
+    box-sizing: border-box;
+}
+.newMovieContainer {
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    min-height: 100vh;
+    padding: 1rem;
+    .addMovie {
+        position: relative;
+        width: 30vw;
+        height: 90vh;
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        border-radius: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid black;
+        .addMovieTitle h1 {
+            font-size: 2rem;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem 0;
+            .formItem {
+                display: flex;
+                justify-content: center;
+                .formLeft {
+                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    border-right: 1px solid lightgray;
+                    padding: 0 1rem;
+                }
+                .formRight {
+                    width: 50%;
+                    padding: 0 1rem;
+                }
+                .addMovieBox {
+                    display: flex;
+                    flex-direction: column;
+                    label {
+                        font-size: 1rem;
+                    }
+                    input {
+                        width: 95%;
+                        margin: 1.5rem auto;
+                        font-size: 1rem;
+                        font-family: inherit;
+                        outline: 0;
+                        border: 0;
+                        border-bottom: 1px solid black;
+                    }
+                    select {
+                        padding: 0.5rem;
+                        outline: 0;
+                        border-radius: 5px;
+                    }
+                }
+            }
+            .activeButton {
+                outline: 0;
+                font-size: 1rem;
+                font-family: inherit;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding: 1.3rem 0.5rem;
+                button {
+                    width: 100%;
+                    border-radius: 1.25rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 64rem) {
+    .newMovieContainer {
+        .addMovie {
+            width: 50vw;
+            height: 60vh;
+            form {
+                .addMovieBox {
+                    label {
+                        padding: 0 1rem;
+                    }
+                }
+                .activeButton {
+                    .links {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 48rem) {
+    .newMovieContainer {
+        .addMovie {
+            width: 50vw;
+            height: 80vh;
+            form {
+                .addMovieBox {
+                    label {
+                        padding: 0 1rem;
+                    }
+                }
+                .activeButton {
+                    .links {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 37.5rem) {
+    .newMovieContainer {
+        .addMovie {
+            width: 50vw;
+            height: 100vh;
+            form {
+                .formItem {
+                    .formLeft {
+                        width: 60%;
+                    }
+                    .addMovieBox {
+                        label {
+                            padding: 0 1rem;
+                        }
+                        input {
+                            width: 90%;
+                        }
+                        select {
+                            width: 90%;
+                        }
+                    }
+                }
+                .activeButton {
+                    .links {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,182 @@
+.userList {
+    width: min(100vw, 100% - 3rem);
+    height: min(100vh, 100% - 3rem);
+    margin-inline: auto;
+    .table-userList-container {
+        max-width: 100%;
+        max-height: 100%;
+        padding: 1rem;
+        overflow-y: scroll;
+        .btnAdd {
+            display: flex;
+            justify-content: flex-end;
+            padding: 0.5rem;
+        }
+        table {
+            width: 100%;
+            background: rgb(20, 20, 20);
+            border-collapse: collapse;
+            line-height: 1.5;
+            font-size: 1.25rem;
+            th,
+            td {
+                text-align: center;
+            }
+            th,
+            td {
+                color: #eee;
+                padding: 1rem;
+            }
+            caption {
+                text-align: center;
+                font-size: 2rem;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+            th {
+                background: hsl(0 0% 0% / 0.5);
+            }
+            .username {
+                width: 20%;
+            }
+            .imgUser img {
+                width: 10%;
+                height: 10%;
+            }
+            .action {
+                display: grid;
+                grid-template-columns: repeat(2, auto);
+                button {
+                    margin: 1rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 37.5rem) {
+    .userList {
+        .table-userList-container {
+            padding: 0;
+            table {
+                th {
+                    display: none;
+                }
+                td {
+                    display: grid;
+                    grid-template-columns: 11ch auto;
+                    text-align: left;
+                }
+                td:last-child {
+                    padding-bottom: 2rem;
+                }
+                td::before {
+                    content: attr(data-cell) ": ";
+                    font-weight: 700;
+                    text-transform: capitalize;
+                    text-align: left;
+                }
+                .imgUser img {
+                    width: 50%;
+                    height: 100%;
+                }
+                .isAdmin {
+                    justify-items: left;
+                }
+                .action {
+                    display: grid;
+                    grid-template-columns: repeat(3, auto);
+                    button {
+                        margin: 0;
+                        width: 10%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 48rem) {
+    th {
+        display: none;
+    }
+    td {
+        display: grid;
+        grid-template-columns: 15ch auto;
+        text-align: center;
+    }
+    td:last-child {
+        padding-bottom: 2rem;
+    }
+    td::before {
+        content: attr(data-cell) ": ";
+        font-weight: 700;
+        text-transform: capitalize;
+    }
+    .isAdmin {
+        justify-items: center;
+    }
+    .userList .table-userList-container table {
+        .username {
+            width: 100%;
+        }
+        .imgUser img {
+            width: 50%;
+            height: 100%;
+            justify-self: center;
+        }
+        .action {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            justify-items: center;
+            a {
+                justify-self: center;
+            }
+            button {
+                margin: 0;
+                width: 10%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 64rem) {
+    th {
+        display: none;
+    }
+    td {
+        display: grid;
+        grid-template-columns: 18ch auto;
+        text-align: center;
+    }
+    td:last-child {
+        padding-bottom: 2rem;
+    }
+    td::before {
+        content: attr(data-cell) ": ";
+        font-weight: 700;
+        text-transform: capitalize;
+        text-align: center;
+    }
+    .isAdmin {
+        justify-items: center;
+    }
+    .userList .table-userList-container table {
+        .username {
+            width: 100%;
+        }
+        .imgUser img {
+            width: 50%;
+            height: 100%;
+            justify-self: center;
+        }
+        .action {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            button {
+                margin: 0;
+                width: 20%;
+            }
+        }
+    }
+}

@@ -1,0 +1,107 @@
+.showcase {
+    width: 100%;
+    height: min(90vh, 100% - 3rem);
+    position: absolute;
+    color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    .totalContainer {
+        .containerFirst {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .firstContent {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                padding: 1rem;
+                h1 {
+                    font-size: 4rem;
+                    font-weight: 900;
+                }
+                .contentSubtitle {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    padding: 1rem 0;
+                    span {
+                        padding: 1rem 0;
+                        font-size: 2rem;
+                        font-weight: 400;
+                    }
+                    button {
+                        background-color: rgb(255,140,0);
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .showcase {
+        height: 20%;
+        .totalContainer {
+            .containerFirst {
+                .firstContent {
+                    h1 {
+                        font-size: 3rem;
+                    }
+                    .contentSubtitle {
+                        span {
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .showcase {
+        height: 20%;
+        .totalContainer {
+            .containerFirst {
+                .firstContent {
+                    h1 {
+                        font-size: 2rem;
+                    }
+                    .contentSubtitle {
+                        span {
+                            font-size: 1.3rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .showcase{
+        height: 20%;
+        .totalContainer {
+            .containerFirst {
+                .firstContent {
+                    h1 {
+                        font-size: 1.5rem;
+                    }
+                    .contentSubtitle {
+                        span {
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

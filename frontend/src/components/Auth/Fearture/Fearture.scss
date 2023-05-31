@@ -1,0 +1,24 @@
+.fearture {
+    position: relative;
+    .category {
+        top: 5rem;
+        left: 3rem;
+        font-size: 1.5rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        select {
+            cursor: pointer;
+            background-color: rgb(20, 20, 20);
+            border: 1px solid white;
+            color: white;
+            margin-left: 1.2rem;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+    }
+    #genre {
+        z-index: 2;
+    }
+}

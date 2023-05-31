@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+}
+.container {
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background: url("https://r4.wallpaperflare.com/wallpaper/175/128/20/creative-graphics-sky-starry-sky-starry-wallpaper-98163d7850402c38e04cb18ee872347a.jpg")
+        no-repeat;
+    background-position: center;
+    background-size: cover;
+    .login {
+        position: relative;
+        width: 25vw;
+        height: 60vh;
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        border-radius: 1.25rem;
+        backdrop-filter: blur(0.938rem);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .title h1 {
+            font-size: 2rem;
+            text-align: center;
+            color: #eee;
+        }
+        form {
+            .inputBox {
+                display: flex;
+                flex-direction: column;
+                label {
+                    color: #fff;
+                    font-size: 1.3rem;
+                }
+                input {
+                    width: 95%;
+                    margin: 1.5rem auto;
+                    padding: 1rem;
+                    border-radius: 1.25rem;
+                    font-size: 1rem;
+                    font-family: inherit;
+                    outline: 0;
+                    border: 0;
+                }
+            }
+            .btnLogin {
+                outline: 0;
+                font-size: 1rem;
+                font-family: inherit;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding: 1rem;
+                button {
+                    width: 100%;
+                    border-radius: 1.25rem;
+                }
+                .links {
+                    color: #fff;
+                    padding: 1rem;
+                    a {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 64rem) {
+    .container {
+        .login {
+            width: 50vw;
+            height: 40vh;
+            form {
+                .inputBox {
+                    label {
+                        padding: 0 1rem;
+                    }
+                }
+                .btnLogin {
+                    .links {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 48rem) {
+    .container {
+        .login {
+            width: 50vw;
+            height: 50vh;
+            form {
+                .inputBox {
+                    label {
+                        padding: 0 1rem;
+                    }
+                }
+                .btnLogin {
+                    .links {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 37.5rem) {
+    .container {
+        .login {
+            width: 50vw;
+            height: 65vh;
+            form {
+                .inputBox {
+                    label {
+                        padding: 0 1rem;
+                    }
+                }
+                .btnLogin {
+                    .links {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}

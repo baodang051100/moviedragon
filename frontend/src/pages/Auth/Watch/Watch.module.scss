@@ -1,0 +1,22 @@
+.watch {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .video {
+        video {
+            padding: 1rem;
+        }
+    }
+    .videoInfo {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+
+        span {
+            padding: 1rem 0;
+            .title {
+                font-family: "Roboto", sans-serif;
+            }
+        }
+    }
+}
