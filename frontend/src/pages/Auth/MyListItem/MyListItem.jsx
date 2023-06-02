@@ -4,10 +4,13 @@ import { deleteMovieFromMyList } from '../../../redux/slice/myListSlice';
 import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
 import Loader from '../../../components/Loader/Loader';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 
 const MyListItem = ({ item }) => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const [movieList, setMovieList] = useState([]);
 
     const axiosInstance = axios.create({
@@ -27,6 +30,7 @@ const MyListItem = ({ item }) => {
         if (window.confirm("You Want To Delete Movie From Your List ?")) {
             dispatch(deleteMovieFromMyList(id));
             window.location.reload(false)
+            navigate("/vn")
         }
     }
 
