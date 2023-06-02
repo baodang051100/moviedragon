@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from "axios";
 import { toast } from 'react-toastify';
+import axios from 'axios';
 
 const user = JSON.parse(localStorage.getItem("user"));
 const token = JSON.parse(localStorage.getItem("token"));
@@ -13,10 +13,14 @@ const initialState = {
     success: false,
 };
 
+const axiosInstance = axios.create({
+    baseURL: import.meta.env.VITE_REACT_APP_API_URL,
+});
+
 export const register = createAsyncThunk("auth/register",
     async (user, thunkAPI) => {
         try {
-            const res = await axios.post("http://localhost:8000/api/auth/register", user);
+            const res = await axiosInstance.post("auth/register", user);
             if (res.data) {
                 console.log(res.data)
                 sessionStorage.setItem("user", JSON.stringify(res.data))
@@ -30,7 +34,7 @@ export const register = createAsyncThunk("auth/register",
 export const login = createAsyncThunk("auth/login",
     async (user, thunkAPI) => {
         try {
-            const res = await axios.post("http://localhost:8000/api/auth/login", user);
+            const res = await axiosInstance.post("auth/login", user);
             if (res.data) {
                 localStorage.setItem("user", JSON.stringify(res.data.data))
                 localStorage.setItem("userId", JSON.stringify(res.data.data._id))

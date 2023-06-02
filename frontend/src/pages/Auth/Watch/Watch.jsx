@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 import styles from "./Watch.module.scss";
+import axios from 'axios';
 
 const Watch = () => {
     const { id } = useParams();
@@ -10,8 +10,11 @@ const Watch = () => {
 
     const showMovie = useSelector((state) => state.movie.show);
 
+    const axiosInstance = axios.create({
+        baseURL: import.meta.env.VITE_REACT_APP_API_URL,
+    });
     useEffect(() => {
-        axios.get("http://localhost:8000/api/movie/find/" + id, {
+        axiosInstance.get("movie/find/" + id, {
             headers: {
                 token: "Bearer " + JSON.parse(localStorage.getItem("token"))
             },

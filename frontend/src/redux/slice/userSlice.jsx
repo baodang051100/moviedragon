@@ -1,17 +1,38 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { toast } from 'react-toastify';
 
 const initialState = {
     users: [],
     show: [],
+    info: [],
     loading: false,
     listFavorite: [],
 }
 
+const axiosInstance = axios.create({
+    baseURL: import.meta.env.VITE_REACT_APP_API_URL,
+});
+
 export const getUser = createAsyncThunk("api/users/",
     async (thunkAPI) => {
         try {
-            const res = await axios.get("http://localhost:8000/api/users/", {
+            const res = await axiosInstance.get("users/", {
+                headers: {
+                    token: "Bearer " + JSON.parse(localStorage.getItem("token"))
+                },
+            });
+            return res.data;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(extractErrorMessage(error))
+        }
+    }
+)
+
+export const getAnUser = createAsyncThunk("users/:id",
+    async (id, thunkAPI) => {
+        try {
+            const res = await axiosInstance.get("users/" + id, {
                 headers: {
                     token: "Bearer " + JSON.parse(localStorage.getItem("token"))
                 },
@@ -26,7 +47,7 @@ export const getUser = createAsyncThunk("api/users/",
 export const deleteUser = createAsyncThunk("api/users/:id",
     async (id, thunkAPI) => {
         try {
-            const res = await axios.get("http://localhost:8000/api/users/" + id, {
+            const res = await axiosInstance.get("users/" + id, {
                 headers: {
                     token: "Bearer " + JSON.parse(localStorage.getItem("token"))
                 },
@@ -38,21 +59,6 @@ export const deleteUser = createAsyncThunk("api/users/:id",
     }
 )
 
-export const addFavorite = createAsyncThunk("api/myList/",
-    async (userId, list, thunkAPI) => {
-        try {
-            const res = await axios.post("http://localhost:8000/api/myList/", list, userId, {
-                headers: {
-                    token: "Bearer " + JSON.parse(localStorage.getItem("token"))
-                },
-            });
-            if(res.data.id) return res.data;
-            console.log(res.data)
-        } catch (error) {
-            return thunkAPI.rejectWithValue(extractErrorMessage(error))
-        }
-    }
-)
 
 const userSlice = createSlice({
     name: "user",
@@ -85,6 +91,19 @@ const userSlice = createSlice({
             .addCase(deleteUser.rejected, (state) => {
                 state.loading = false
                 console.log("delete user failed")
+            })
+            //-------------------GET AN USER---------------------------------------
+            .addCase(getAnUser.pending, (state) => {
+                state.loading = true
+            })
+            .addCase(getAnUser.fulfilled, (state, action) => {
+                toast.success("get an user success")
+                state.info = action.payload
+                state.loading = false
+            })
+            .addCase(getAnUser.rejected, (state) => {
+                state.loading = false
+                toast.error("get an user failed")
             })
     }
 })

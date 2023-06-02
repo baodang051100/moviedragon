@@ -43,7 +43,6 @@ const MovieList = () => {
                             <th>Genre</th>
                             <th>Img</th>
                             <th>Series</th>
-                            <th>ImgSm</th>
                             <th>Year</th>
                             <th>Action</th>
                         </tr>
@@ -54,16 +53,13 @@ const MovieList = () => {
                                     <td data-cell="Desc" className='desc'>{movie.desc}</td>
                                     <td data-cell="Genre">{movie.genre}</td>
                                     <td data-cell="Img" className='img'>
-                                        <img src={movie.img} alt={movie.img} width={50} height={50} />
+                                        <img src={movie.imgSm} alt={movie.imgSm} width={50} height={50} />
                                     </td>
                                     <td data-cell="isSeries" className='isSeries'>
                                         {movie.isSeries ?
                                             <CheckIcon style={{ color: 'green' }} /> :
                                             <CloseIcon style={{ color: 'red' }} />
                                         }
-                                    </td>
-                                    <td data-cell="ImgSm" className='img'>
-                                        <img src={movie.imgSm} alt={movie.imgSm} width={50} height={50} />
                                     </td>
                                     <td data-cell="Year">{movie.year}</td>
                                     <td data-cell="Action">

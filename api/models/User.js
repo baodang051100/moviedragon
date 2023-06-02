@@ -6,7 +6,7 @@ const UserSchema = new mongoose.Schema({
     password: { type: String, required: true },
     profilePic: { type: String, default: "" },
     isAdmin: { type: Boolean, default: false },
-    myList: [
+    watchlists: [
         {
             type: mongoose.Schema.Types.ObjectId,
             ref: "MyList"

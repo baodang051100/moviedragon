@@ -10,8 +10,8 @@ router.put("/:id",verifyUser, updateUser);
 //DELETE
 router.delete("/:id",verifyAdmin, deleteUser);
 
-//GET
-router.get("/find/:id",verifyAdmin, getUser);
+//GET A USER
+router.get("/:id",verifyAdmin, getUser);
 
 //GET ALL
 router.get("/",verifyAdmin, getAllUser);

@@ -35,6 +35,9 @@
             th {
                 background: hsl(0 0% 0% / 0.5);
             }
+            img {
+                object-fit: cover;
+            }
         }
     }
 }

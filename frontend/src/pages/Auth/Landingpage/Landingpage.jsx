@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import "./Landingpage.scss";
-import Movie from '../Movie/Movie';
-import Slider from '../../../components/Auth/Slider/Slider';
-import Fearture from "../../../components/Auth/Fearture/Fearture";
 import List from '../list/List';
 import axios from 'axios';
-import ListItem from '../ListItem/ListItem';
+import Fearture from '../../../components/Auth/Fearture/Fearture';
 
 const Landingpage = ({ type }) => {
     const [lists, setLists] = useState([]);
     const [genre, setGenre] = useState(null);
 
+    const axiosInstance = axios.create({
+        baseURL: import.meta.env.VITE_REACT_APP_API_URL,
+    });
     useEffect(() => {
         const getList = async () => {
             try {
-                const res = await axios.get(`http://localhost:8000/api/lists${type ? "?type=" + type : ""} ${genre ? "&genre=" + genre : ""}`
+                const res = await axiosInstance.get(`lists${type ? "?type=" + type : ""} ${genre ? "&genre=" + genre : ""}`
                     , {
                         headers: {
                             token: "Bearer " + JSON.parse(localStorage.getItem("token")),
@@ -27,6 +27,7 @@ const Landingpage = ({ type }) => {
         };
         getList();
     }, [type, genre])
+
     return (
         <div className="landingPage">
             <div className="feartured"><Fearture type={type} setGenre={setGenre} /></div>

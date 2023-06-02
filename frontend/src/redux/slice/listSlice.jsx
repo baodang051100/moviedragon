@@ -9,10 +9,14 @@ const initialState = {
     selectList: {},
 }
 
+const axiosInstance = axios.create({
+    baseURL: import.meta.env.VITE_REACT_APP_API_URL,
+});
+
 export const createList = createAsyncThunk("api/list/",
     async (list, thunkAPI) => {
         try {
-            const res = await axios.post("http://localhost:8000/api/list/", list, {
+            const res = await axiosInstance.post("list/", list, {
                 headers: {
                     token: "Bearer " + JSON.parse(localStorage.getItem("token"))
                 },
@@ -29,7 +33,7 @@ export const createList = createAsyncThunk("api/list/",
 export const getAllList = createAsyncThunk("api/list/find/",
     async (type, genre, thunkAPI) => {
         try {
-            const res = await axios.get("http://localhost:8000/api/lists",
+            const res = await axiosInstance.get("lists",
                 {
                     headers: {
                         token: "Bearer " + JSON.parse(localStorage.getItem("token"))
@@ -46,7 +50,7 @@ export const getAllList = createAsyncThunk("api/list/find/",
 export const updateList = createAsyncThunk("api/list/update",
     async (id, selectList, thunkAPI) => {
         try {
-            const res = await axios.put("http://localhost:8000/api/list/update/" + id, selectList, {
+            const res = await axiosInstance.put("list/update/" + id, selectList, {
                 headers: {
                     token: "Bearer " + JSON.parse(localStorage.getItem("token"))
                 },
@@ -62,7 +66,7 @@ export const updateList = createAsyncThunk("api/list/update",
 export const deleteList = createAsyncThunk("api/list/:id",
     async (id, thunkAPI) => {
         try {
-            const res = await axios.delete("http://localhost:8000/api/list/" + id, {
+            const res = await axiosInstance.delete("list/" + id, {
                 headers: {
                     token: "Bearer " + JSON.parse(localStorage.getItem("token"))
                 },

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from "react-router-dom";
 import "./User.scss";
-import axios from 'axios';
 import PublishIcon from '@mui/icons-material/Publish';
 import { Button, Modal, Box, Typography } from '@mui/material';
 import SidebarAdmin from '../../../../components/Admin/Sidebar/Sidebar';
+import axios from 'axios';
 
 const User = () => {
 
@@ -27,9 +27,11 @@ const User = () => {
         boxShadow: 24,
         p: 4,
     };
-
+    const axiosInstance = axios.create({
+        baseURL: import.meta.env.VITE_REACT_APP_API_URL,
+    });
     useEffect(() => {
-        axios.get("http://localhost:8000/api/user/find/" + id, {
+        axiosInstance.get("user/find/" + id, {
             headers: {
                 token: "Bearer" + JSON.parse(localStorage.getItem("user")).token,
             },

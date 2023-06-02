@@ -15,7 +15,7 @@ import myListRoute from "./route/myList.js";
 
 dotenv.config();
 const PORT = process.env.PORT || 8000;
-const host = "";
+const host = "127.0.0.1";
 
 const app = express();
 mongoose.set('strictQuery', false);
@@ -28,6 +28,8 @@ app.options("*", cors())
 app.use(cors());
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(cookieParser());
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
 
 //add router
 app.use("/api/auth", authRoute);
@@ -36,6 +38,6 @@ app.use("/api/movie", movieRoute);
 app.use("/api/lists", listRoute);
 app.use("/api/myList", myListRoute);
 
-app.listen(PORT, () => {
+app.use(cors(app.listen(PORT, host, () => {
     console.log(`Server is running on port ${PORT}`);
-})
+})))

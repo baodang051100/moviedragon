@@ -10,8 +10,6 @@ const Fearture = ({ type, setGenre }) => {
         dispatch(getMovieRandom(type));
     }, [type])
 
-
-
     return (
         <div className='fearture'>
             <div className="slider">

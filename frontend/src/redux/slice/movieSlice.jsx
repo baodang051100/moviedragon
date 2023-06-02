@@ -8,10 +8,14 @@ const initialState = {
     selectItem: {},
 }
 
+const axiosInstance = axios.create({
+    baseURL: import.meta.env.VITE_REACT_APP_API_URL,
+});
+
 export const createMovie = createAsyncThunk("api/movie/",
     async (movie, thunkAPI) => {
         try {
-            const res = await axios.post("http://localhost:8000/api/movie/", movie, {
+            const res = await axiosInstance.post("http://localhost:8000/api/movie/", movie, {
                 headers: {
                     token: "Bearer " + JSON.parse(localStorage.getItem("token"))
                 },
@@ -30,7 +34,7 @@ export const createMovie = createAsyncThunk("api/movie/",
 export const getAll = createAsyncThunk("api/movie/find/",
     async (thunkAPI) => {
         try {
-            const res = await axios.get("http://localhost:8000/api/movie/find/", {
+            const res = await axiosInstance.get("movie/find/", {
                 headers: {
                     token: "Bearer " + JSON.parse(localStorage.getItem("token"))
                 },
@@ -45,7 +49,7 @@ export const getAll = createAsyncThunk("api/movie/find/",
 export const getMovieRandom = createAsyncThunk("api/movie/random",
     async (type, thunkAPI) => {
         try {
-            const res = await axios.get(`http://localhost:8000/api/movie/random?type=${type}`, {
+            const res = await axiosInstance.get(`movie/random?type=${type}`, {
                 headers: {
                     token: "Bearer " + JSON.parse(localStorage.getItem("token"))
                 },
@@ -60,7 +64,7 @@ export const getMovieRandom = createAsyncThunk("api/movie/random",
 export const deleteMovie = createAsyncThunk("api/movie/id",
     async (id, thunkAPI) => {
         try {
-            const res = await axios.delete("http://localhost:8000/api/movie/" + id, {
+            const res = await axiosInstance.delete("movie/" + id, {
                 headers: {
                     token: "Bearer " + JSON.parse(localStorage.getItem("token"))
                 },

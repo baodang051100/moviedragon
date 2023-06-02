@@ -8,14 +8,16 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import { addMyList } from '../../../redux/slice/myListSlice';
 import { useDispatch } from 'react-redux';
 
-
-
-
 const ListItem = ({ item }) => {
     const userId = localStorage.getItem("userId")
     const [movie, setMovie] = useState([]);
+    const dispatch = useDispatch();
+    
+    const axiosInstance = axios.create({
+        baseURL: import.meta.env.VITE_REACT_APP_API_URL,
+    });
     useEffect(() => {
-        axios.get("http://localhost:8000/api/movie/find/" + item, {
+        axiosInstance.get("movie/find/" + item, {
             headers: {
                 token: "Bearer " + JSON.parse(localStorage.getItem("token"))
             },
@@ -24,14 +26,14 @@ const ListItem = ({ item }) => {
         })
     }, [])
 
-    const dispatch = useDispatch();
-
-    const list = {
-        user: userId,
-        movieId: movie._id,
-    }
-
-    const onClickAddMyList = (list) => {
+    const onClickAddMyList = () => {
+        const list = {
+            movieId: movie._id,
+            movieImg: movie.imgSm,
+            movieTitle: movie.title,
+            movieDesc: movie.desc
+        }
+        console.log(list)
         dispatch(addMyList(list))
     }
 
@@ -46,7 +48,7 @@ const ListItem = ({ item }) => {
                         <span>Share</span>
                     </li>
                     <li>
-                        <FavoriteIcon onClick={() => onClickAddMyList(list)} />
+                        <FavoriteIcon onClick={onClickAddMyList} />
                         <span>Favoriter</span>
                     </li>
                     <li>

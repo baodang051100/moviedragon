@@ -16,6 +16,7 @@ import Button from '@mui/material/Button';
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { useNavigate } from "react-router-dom";
+import { addMyList } from "../../../redux/slice/myListSlice";
 
 const Slider = () => {
     const dispatch = useDispatch();
@@ -26,6 +27,10 @@ const Slider = () => {
     const navigate = useNavigate();
     const handleClick = (id) => {
         navigate("/vn/watch/" + id)
+    }
+
+    const onClickAddMyList = (list) => {
+        dispatch(addMyList(list))
     }
 
     return (
@@ -42,11 +47,16 @@ const Slider = () => {
                     navigation={{
                         clickable: true
                     }}
-                    modules={[EffectFlip, Pagination, Navigation]}
+                    modules={[EffectFlip, Pagination, Navigation, Autoplay]}
                     loop={true}
                     className="mySwiper"
                 >
                     {movie.map((index, i) => {
+                        const list = {
+                            movieId: index._id,
+                            movieTitle: index.title,
+                            movieDesc: index.desc
+                        }
                         return (
                             <SwiperSlide key={i}>
                                 <div className="slideContent">
@@ -68,7 +78,9 @@ const Slider = () => {
                                         </div>
                                         <div className="watchLater">
                                             <Button
-                                                variant="outline">
+                                                variant="outline"
+                                                onClick={() => onClickAddMyList(list)}
+                                            >
                                                 <PlaylistAddIcon />
                                                 <span>Add to watch later</span>
                                             </Button>

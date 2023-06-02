@@ -95,6 +95,7 @@ const Header = () => {
                                 <li><Link to="/vn">Home</Link></li>
                                 <li><Link to="/vn/movies">Movie</Link></li>
                                 <li><Link to="/vn/series">Series</Link></li>
+                                <li><Link to="/vn/mylist">My List</Link></li>
                             </ul>
                         </div>
                     </div>

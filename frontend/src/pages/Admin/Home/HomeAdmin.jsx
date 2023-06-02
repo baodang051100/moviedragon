@@ -17,6 +17,7 @@ const HomeAdmin = () => {
             </div>
             <div className={styles.element}>
                 <Routes>
+                    <Route path='/admin' element={<HomeAdmin />} />
                     <Route path='/user' element={<UserList />} />
                     <Route path='/newUser' element={<NewUser />} />
                     <Route path='/movie' element={<MovieList />} />

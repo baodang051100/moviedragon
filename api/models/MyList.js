@@ -8,6 +8,9 @@ const MyListSchema = new mongoose.Schema({
         require: true
     },
     movieId: { type: String },
+    movieImg: { type: String },
+    movieTitle: { type: String },
+    movieDesc: { type: String },
 },
     { timestamps: true }
 );

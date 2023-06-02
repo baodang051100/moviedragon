@@ -10,6 +10,8 @@ import { useSelector } from 'react-redux';
 import Watch from './pages/Auth/Watch/Watch';
 import Landingpage from './pages/Auth/Landingpage/Landingpage';
 import Fearture from './components/Auth/Fearture/Fearture';
+import axios from 'axios';
+import MyList from './pages/Auth/MyList/MyList';
 
 function App() {
   const user = useSelector((state) => state.auth.user);
@@ -21,20 +23,16 @@ function App() {
         <Route path='/' element={!user ? <Home /> : <Navigate to="/vn" />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
-
         {/*-------------------ADMIN----------------------*/}
         {user && (
           <>
             {user.isAdmin ? (
-              <>
-                <Route expact path='/admin//*' element={<HomeAdmin />} />
-              </>
+              <Route expact path='/admin//*' element={<HomeAdmin />} />
             ) : (
               <Route path='/' element={<Home />} />
             )}
           </>
         )}
-
         {/*-------------------USER----------------------*/}
         {user ?
           (
@@ -42,6 +40,7 @@ function App() {
               <Route path='/vn/' element={<Landingpage />} />
               <Route path='/vn/movies' element={<Landingpage type="movie" />} />
               <Route path='/vn/series' element={<Landingpage type="series" />} />
+              <Route path='/vn/mylist' element={<MyList />} />
               <Route path='/vn/watch/:id' element={<Watch />} />
             </>
           ) : (
@@ -52,5 +51,4 @@ function App() {
     </div>
   )
 }
-
 export default App;
