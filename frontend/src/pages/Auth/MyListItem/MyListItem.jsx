@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { deleteMovieFromMyList } from '../../../redux/slice/myListSlice';
+import { useSelector } from 'react-redux'
 import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
 import Loader from '../../../components/Loader/Loader';
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
+import "./MyListItem.scss";
+import { Button } from '@mui/material';
+import DeleteIcon from "@mui/icons-material/Delete";
+import { useNavigate } from 'react-router-dom';
 
 
-const MyListItem = ({ item }) => {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+const MyListItem = ({ item, deleteMovie }) => {
 
     const [movieList, setMovieList] = useState([]);
+    const navigate = useNavigate();
 
     const axiosInstance = axios.create({
         baseURL: import.meta.env.VITE_REACT_APP_API_URL,
     });
+
     useEffect(() => {
         axiosInstance.get("myList/get/" + item, {
             headers: {
@@ -24,36 +26,30 @@ const MyListItem = ({ item }) => {
         }).then((res) => {
             setMovieList(res.data)
         })
-    }, [])
+    }, []);
 
-    const deleteMovie = async (id) => {
-        if (window.confirm("You Want To Delete Movie From Your List ?")) {
-            dispatch(deleteMovieFromMyList(id));
-            window.location.reload(false)
-            navigate("/vn")
-        }
+
+    const handleClick = (id) => {
+        navigate({ pathname: "/vn/watch/" + id })
     }
 
-    const loading = useSelector(state => state.myList.loading);
-    const info = useSelector(state => state.myList.info);
-    const handleClick = () => { }
     return (
-        <>
-            {loading ? (
-                <Loader />
-            ) : (
-                <div className="myListCard">
-                    <div className="myListImage">
-                        <img src={movieList.movieImg} alt="" />
-                        <h1>{movieList.movieTitle}</h1>
-                        <div className="myListWatch" onClick={() => handleClick(item._id)}>
-                            <PlayCircleFilledIcon />
-                        </div>
-                        <button onClick={() => deleteMovie(item)}>Delete</button>
-                    </div>
+        <div className="myListCard">
+            <div className="myListImage">
+                <img src={movieList.movieImg} alt="" />
+                <div className="myListWatch" onClick={() => handleClick(movieList.movieId)}>
+                    <PlayCircleFilledIcon />
                 </div>
-            )}
-        </>
+            </div>
+            <Button
+                onClick={() => deleteMovie(item)}
+                variant='contained'
+                color='error'
+                startIcon={<DeleteIcon />}
+            >
+                Delete
+            </Button>
+        </div>
     )
 }
 

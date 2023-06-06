@@ -324,6 +324,28 @@ header {
     }
 }
 
+@media screen and (max-width: 1024px) {
+    header {
+        .navbar {
+            .navbar-left {
+                width: 50%;
+                align-items: center;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        .navbar {
+            .navbar-left {
+                width: 20%;
+                align-items: center;
+            }
+        }
+    }
+}
+
 @media screen and (max-width: 600px) {
     header {
         .navbar {

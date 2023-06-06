@@ -9,7 +9,7 @@ export const addMyList = async (req, res) => {
             movieId: req.body.movieId
         })
 
-        if (isAddMovie) return res.status(200).json(isAddMovie)
+        if (isAddMovie) return res.status(200).json({ success: false, msg: "Movie is existed in your list!" })
 
         const addMovie = new MyList({
             ...req.body,
@@ -21,7 +21,7 @@ export const addMyList = async (req, res) => {
             const user = User.find({ _id: req.user.id });
             await user.updateOne({ $push: { watchlists: saveMovie } })
         }
-        res.status(201).json({ info: saveMovie })
+        res.status(201).json({ success: true, msg: "Add movie to your list success!", info: saveMovie })
     } catch (err) {
         res.status(400).json({ success: false, err })
     }
@@ -35,16 +35,16 @@ export const removeMovieFromMyList = async (req, res) => {
             { watchlists: req.params.id },
             { $pull: { watchlists: req.params.id } }
         )
-        res.status(201).json({ success: true })
+        res.status(201).json({ success: true, msg: "Delete movie success!" })
     } catch (err) {
-        res.status(400).json({ success: false, err })
+        res.status(400).json({ success: false, msg: "Delete movie falied!", err })
     }
 }
 
 //GET
 export const getInfoMyList = async (req, res) => {
     try {
-        const getInfo = await MyList.findById(req.params.id).sort("-createdAt");
+        const getInfo = await MyList.findById(req.params.id);
         res.status(201).json(getInfo)
     } catch (err) {
         res.status(400).json({ success: false, err })

@@ -4,18 +4,21 @@ import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 import "./ListItem.scss"
 import ShareIcon from '@mui/icons-material/Share';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import { addMyList } from '../../../redux/slice/myListSlice';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const ListItem = ({ item }) => {
     const userId = localStorage.getItem("userId")
     const [movie, setMovie] = useState([]);
+
     const dispatch = useDispatch();
-    
+    const navigate = useNavigate();
+
     const axiosInstance = axios.create({
         baseURL: import.meta.env.VITE_REACT_APP_API_URL,
     });
+
     useEffect(() => {
         axiosInstance.get("movie/find/" + item, {
             headers: {
@@ -33,11 +36,13 @@ const ListItem = ({ item }) => {
             movieTitle: movie.title,
             movieDesc: movie.desc
         }
-        console.log(list)
         dispatch(addMyList(list))
     }
 
-    const handleClick = () => { }
+    const handleClick = (id) => {
+        navigate({ pathname: "/vn/watch/" + id })
+    }
+
     return (
         <div className="listCard">
             <div className="listImage">
@@ -47,16 +52,12 @@ const ListItem = ({ item }) => {
                         <ShareIcon />
                         <span>Share</span>
                     </li>
-                    <li>
-                        <FavoriteIcon onClick={onClickAddMyList} />
-                        <span>Favoriter</span>
-                    </li>
-                    <li>
+                    <li onClick={onClickAddMyList}>
                         <PlaylistAddIcon />
                         <span>Add Playlist</span>
                     </li>
                 </ul>
-                <div className="listWatch" onClick={() => handleClick(item._id)}>
+                <div className="listWatch" onClick={() => handleClick(movie._id)}>
                     <PlayCircleFilledIcon />
                 </div>
             </div>

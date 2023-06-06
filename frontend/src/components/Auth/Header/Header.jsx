@@ -93,8 +93,8 @@ const Header = () => {
                         <div className= {click ? 'navbar-moblie' : 'navbar-left-item'}>
                             <ul >
                                 <li><Link to="/vn">Home</Link></li>
-                                <li><Link to="/vn/movies">Movie</Link></li>
-                                <li><Link to="/vn/series">Series</Link></li>
+                                {/* <li><Link to="/vn/movies">Movie</Link></li>
+                                <li><Link to="/vn/series">Series</Link></li> */}
                                 <li><Link to="/vn/mylist">My List</Link></li>
                             </ul>
                         </div>

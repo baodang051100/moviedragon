@@ -97,13 +97,11 @@ const userSlice = createSlice({
                 state.loading = true
             })
             .addCase(getAnUser.fulfilled, (state, action) => {
-                toast.success("get an user success")
                 state.info = action.payload
                 state.loading = false
             })
             .addCase(getAnUser.rejected, (state) => {
                 state.loading = false
-                toast.error("get an user failed")
             })
     }
 })

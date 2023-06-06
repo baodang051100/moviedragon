@@ -7,7 +7,7 @@ const initialState = {
     show: [],
     info: [],
     loading: false,
-    total: 0,
+    success: false,
 }
 
 const axiosInstance = axios.create({
@@ -22,8 +22,12 @@ export const addMyList = createAsyncThunk("api/myList/add/",
                     token: "Bearer " + JSON.parse(localStorage.getItem("token"))
                 },
             });
-            console.log(res.data)
-            return res.data;
+            if (res.data.success === true) {
+                toast.success(res.data.msg)
+                return res.data;
+            } else {
+                toast.error(res.data.msg)
+            }
         } catch (error) {
             return thunkAPI.rejectWithValue(extractErrorMessage(error))
         }
@@ -38,7 +42,6 @@ export const deleteMovieFromMyList = createAsyncThunk("api/delete/:id",
                     token: "Bearer " + JSON.parse(localStorage.getItem("token"))
                 },
             });
-            return res.data;
         } catch (error) {
             return thunkAPI.rejectWithValue(extractErrorMessage(error))
         }
@@ -57,28 +60,21 @@ const myListSlice = createSlice({
                 state.loading = true
             })
             .addCase(addMyList.fulfilled, (state, action) => {
-                console.log("add movie to my list success");
-                toast.success("Add Movie To My List Success")
                 state.myList = action.payload
-                state.show = action.payload
                 state.loading = false
             })
             .addCase(addMyList.rejected, (state) => {
                 state.loading = false
-                console.log("add movie to my list failed")
             })
             //------------------------DELETE FROM WATCH LIST--------------------------------
             .addCase(deleteMovieFromMyList.pending, (state) => {
                 state.loading = true
             })
             .addCase(deleteMovieFromMyList.fulfilled, (state, action) => {
-                toast.success("Delete Movie From My List Success")
-                console.log("Delete Movie From My List Success")
-                state.info = action.payload
+                state.myList = action.payload
                 state.loading = false
             })
             .addCase(deleteMovieFromMyList.rejected, (state) => {
-                console.log("Delete Movie From My List Failed")
                 state.loading = false
             })
     }
