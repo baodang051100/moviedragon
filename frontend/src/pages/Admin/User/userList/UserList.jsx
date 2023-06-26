@@ -33,8 +33,8 @@ const UserList = () => {
                             <th>Tên người dùng</th>
                             <th>Email</th>
                             <th>Admin</th>
-                            <th>Img</th>
-                            <th>Action</th>
+                            <th>Hình ảnh</th>
+                            <th>Hành động</th>
                         </tr>
                         {showUser.map((user, i) => {
                             return (

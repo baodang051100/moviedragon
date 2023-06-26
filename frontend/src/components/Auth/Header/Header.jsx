@@ -11,13 +11,30 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import { updateSearch } from '../../../redux/slice/searchSlice';
+import ClearIcon from '@mui/icons-material/Clear';
+import Darkmode from '../../Darkmode/Darkmode';
 
 const Header = () => {
     const user = JSON.parse(localStorage.getItem("user"));
+    const users = useSelector((state) => state.auth.user);
 
     //SEARCH
     const [showSearch, setShowSearch] = useState(false);
     const handleSearch = () => setShowSearch(!showSearch);
+
+    const [searchInfo, setSearchInfo] = useSelector((state) => state.search.searchInfo);
+    const [isSearch, setIsSearch] = useState(false);
+
+    const dispatchs = useDispatch();
+    const toogleSearch = () => {
+        setIsSearch(!isSearch);
+    }
+    const clearSearchField = () => {
+        setIsSearch(!isSearch);
+        dispatchs(updateSearch(""))
+    }
+    const searchText = useSelector(state => state.search.searchInfo)
 
     //NOTIFICATIONS
     const [showHover, setShowHover] = useState(false);
@@ -58,7 +75,7 @@ const Header = () => {
                                 size='medium'
                                 className='btn-signin'
                             >
-                                Sign in
+                                Đăng nhập
                             </Button>
                         </Link>
                         <Link to="/register">
@@ -68,7 +85,7 @@ const Header = () => {
                                 size='medium'
                                 className='btn-signin'
                             >
-                                Sign Up
+                                Đăng ký
                             </Button>
                         </Link>
                     </div>
@@ -90,12 +107,12 @@ const Header = () => {
                                 {click ? <CloseIcon /> : <MenuIcon />}
                             </Button>
                         </div>
-                        <div className= {click ? 'navbar-moblie' : 'navbar-left-item'}>
+                        <div className={click ? 'navbar-moblie' : 'navbar-left-item'}>
                             <ul >
-                                <li><Link to="/vn">Home</Link></li>
+                                <li><Link to="/vn">Trang chủ</Link></li>
                                 {/* <li><Link to="/vn/movies">Movie</Link></li>
                                 <li><Link to="/vn/series">Series</Link></li> */}
-                                <li><Link to="/vn/mylist">My List</Link></li>
+                                <li><Link to="/vn/mylist">Danh sách xem sau</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -103,17 +120,24 @@ const Header = () => {
                         {/*SEARCH*/}
                         <div className="searchBox">
                             <div className="searchbar">
-                                <input
-                                    type="text"
-                                    className={showSearch ? "input active" : "input"}
-                                    placeholder='Phim, diễn viên, thể loại...'
-                                />
+                                <Link to="/vn/search">
+                                    <input
+                                        type="text"
+                                        className={showSearch ? "input active" : "input"}
+                                        placeholder='Phim, diễn viên, thể loại...'
+                                        value={searchText}
+                                        onChange={(e) => dispatchs(updateSearch(e.target.value))}
+                                    />
+                                </Link>
                                 <button
                                     className={showSearch ? "btn active" : "btn"}
                                     type='submit'
                                     onClick={handleSearch}
                                 >
-                                    <SearchIcon />
+                                    {searchText === "" ?
+                                        (<Link to="/vn/search"><SearchIcon className="searchBtn" /></Link>)
+                                        : (<ClearIcon onClick={clearSearchField} className="searchBtn" />)
+                                    }
                                 </button>
                             </div>
                         </div>
@@ -159,25 +183,23 @@ const Header = () => {
                         </div>
                         {isShow && (
                             <div className='dropdown-profile'>
-                                {profile_items.map((items, index) => {
-                                    return (
-                                        <div className='dropdown-item-profile' key={index}>
-                                            <div className="options">
-                                                <Link to={{ pathname: `/${items.name}` }}>
-                                                    {items.icon}
-                                                    <span>{items.title}</span>
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    )
-                                })}
+                                <div className="dropdown-profile-item">
+                                    {user.isAdmin ?
+                                        <Link to="/admin/">
+                                            <span>Admin</span>
+                                        </Link> : ""
+                                    }
+                                    <Link to="/admin/user">
+                                        <span>Thông tin</span>
+                                    </Link>
+                                </div>
                                 <Button
                                     variant="outline"
                                     size='medium'
                                     className='btn-logout'
                                     onClick={handleLogout}
                                 >
-                                    Logout
+                                    Đăng xuất
                                 </Button>
                             </div>
                         )}

@@ -38,10 +38,10 @@ const ListMovie = () => {
                     </caption>
                     <tbody>
                         <tr className='table-list-title'>
-                            <th>Title</th>
-                            <th>Genre</th>
-                            <th>Type</th>
-                            <th>Action</th>
+                            <th>Tiêu đề</th>
+                            <th>Thể loại</th>
+                            <th>Kiểu</th>
+                            <th>Hành động</th>
                         </tr>
                         {showList.map((list, i) => {
                             return (

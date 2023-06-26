@@ -47,7 +47,7 @@ const MyListItem = ({ item, deleteMovie }) => {
                 color='error'
                 startIcon={<DeleteIcon />}
             >
-                Delete
+                Xóa
             </Button>
         </div>
     )

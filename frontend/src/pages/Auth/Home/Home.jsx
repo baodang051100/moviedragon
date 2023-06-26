@@ -7,21 +7,21 @@ import { imageDevice } from '../../../slide-data';
 import background from "../../../assets/background.jpg"
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Header } from '../../../components/Auth';
 
 const Home = () => {
     return (
         <div className='home'>
+            <Header />
             <div className="homeTop">
                 <Showcase />
-                <img src={image} alt="" />
+                <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="" />
             </div>
             <div className="secondContainer">
                 <div className="secondContent">
-                    <h1>Stream Anywhere</h1>
+                    <h1>Bất cứ nơi đâu</h1>
                     <span>
-                        Flicks is available for free on Android, IOS,
-                        Roku, Apple TV, Amazone Fir TV, Xfinity X1Xbox,
-                        Samsung Smart TV, Sony Smart TV, Play Station and the web.
+                        Có sẵn miễn phí trên Android, IOS, Roku, Apple TV, Amazon Fire TV, hộp Xfinity X1, Samsung Smart TV, Sony Smart TV, Play Station và Web.
                     </span>
                 </div>
                 <div className="imgDevice">
@@ -30,9 +30,6 @@ const Home = () => {
                             <img src={index.image} key={i} />
                         )
                     })}
-                </div>
-                <div className="btnSP">
-                    <Button variant='contined'>Supported Device</Button>
                 </div>
             </div>
             <div className="thirdContainer">

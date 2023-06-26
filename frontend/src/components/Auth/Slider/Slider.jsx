@@ -73,7 +73,7 @@ const Slider = () => {
                                                 color="error"
                                             >
                                                 <PlayArrowIcon />
-                                                <span>Play</span>
+                                                <span>Xem phim</span>
                                             </Button>
                                         </div>
                                         <div className="watchLater">
@@ -82,7 +82,7 @@ const Slider = () => {
                                                 onClick={() => onClickAddMyList(list)}
                                             >
                                                 <PlaylistAddIcon />
-                                                <span>Add to watch later</span>
+                                                <span>Xem sau</span>
                                             </Button>
                                         </div>
                                     </div>

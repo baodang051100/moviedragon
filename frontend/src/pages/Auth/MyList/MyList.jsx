@@ -45,7 +45,7 @@ const MyList = () => {
     return (
         <div className="myList">
             <div className="myListTitle">
-                <h1>My List</h1>
+                <h1>Danh sách phim của tôi</h1>
             </div>
             <div className="myListWrapper">
                 <div className="myListContainer">

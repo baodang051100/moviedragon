@@ -59,7 +59,7 @@ header {
                     align-items: center;
                     position: relative;
                     width: 100%;
-                    max-width: 20rem;
+                    max-width: 100%;
                     height: auto;
                     .input {
                         padding: 1rem 2rem;
@@ -174,8 +174,8 @@ header {
             //Profile
             .imgUser img {
                 border-radius: 100%;
-                width: 4rem;
-                height: 4rem;
+                width: 2rem;
+                height: 2rem;
                 cursor: pointer;
             }
             .dropdown-profile {
@@ -184,14 +184,14 @@ header {
                 position: absolute;
                 background-color: black;
                 color: white;
-                right: 2.5rem;
-                top: 6rem;
+                right: 2.3rem;
+                top: 5rem;
                 width: 10vw;
-                .dropdown-item-profile {
+                .dropdown-profile-item {
                     display: flex;
                     flex-direction: column;
                     padding: 1rem;
-                    .options a {
+                    a {
                         display: flex;
                         align-items: center;
                         padding: 0.5rem;
@@ -222,7 +222,7 @@ header {
                 top: -0.6rem;
                 position: absolute;
                 display: flex;
-                right: 1.6rem;
+                right: 1rem;
                 border-bottom: 10px solid black;
                 border-right: 10px solid transparent;
                 border-left: 10px solid transparent;
@@ -255,7 +255,7 @@ header {
             display: flex;
             justify-content: space-between;
             .navbar-left {
-                width: 10%;
+                width: 20%;
                 .navbar-left-item li {
                     display: none;
                 }
@@ -356,6 +356,11 @@ header {
                 }
             }
             .loginSuccess {
+                .searchBox {
+                    .searchbar {
+                        max-width: 10rem;
+                    }
+                }
                 .notifi {
                     .dropdown-notifications {
                         top: 4rem;

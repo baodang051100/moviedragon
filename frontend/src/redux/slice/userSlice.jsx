@@ -71,26 +71,22 @@ const userSlice = createSlice({
                 state.loading = true
             })
             .addCase(getUser.fulfilled, (state, action) => {
-                console.log("get user success")
                 state.show = action.payload
                 state.loading = false
             })
             .addCase(getUser.rejected, (state) => {
                 state.loading = false
-                console.log("get user failed")
             })
             //-------------------DELETE USER---------------------------------------
             .addCase(deleteUser.pending, (state) => {
                 state.loading = true
             })
             .addCase(deleteUser.fulfilled, (state, action) => {
-                console.log("delete user success")
                 state.show = action.payload
                 state.loading = false
             })
             .addCase(deleteUser.rejected, (state) => {
                 state.loading = false
-                console.log("delete user failed")
             })
             //-------------------GET AN USER---------------------------------------
             .addCase(getAnUser.pending, (state) => {

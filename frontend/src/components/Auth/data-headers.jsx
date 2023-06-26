@@ -17,7 +17,7 @@ export const profile_items = [
     {
         icon: <SupervisorAccountIcon sx={{ fontSize: "1.5rem" }}/>,
         title: "Admin",
-        name: "admin",
+        name: "admin/",
     },
     {
         icon: <PersonIcon sx={{ fontSize: "1.5rem" }}/>,

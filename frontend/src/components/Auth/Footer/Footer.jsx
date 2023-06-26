@@ -8,44 +8,48 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 const Footer = () => {
     return (
         <div className='footer'>
-            <div className="top-footer">
-                <div className="question">
-                    <span>Question? Contact us. </span>
+            <div className="footer-container">
+                <div className="top-footer">
                 </div>
-                <div className="footer-icons">
-                    <span><FacebookIcon /></span>
-                    <span><InstagramIcon /></span>
-                    <span><TwitterIcon /></span>
-                    <span><YouTubeIcon /></span>
+                <div className="middle-footer">
+                    <ul>
+                        <li><span>About Us</span></li>
+                        <li>Our Story</li>
+                        <li>Leadership</li>
+                        <li>News</li>
+                        <li>Press</li>
+                    </ul>
+                    <ul>
+                        <li><span>Careers</span></li>
+                        <li>Becoming A Citizen</li>
+                        <li>Responsibilities</li>
+                        <li>Perks</li>
+                    </ul>
+                    <ul>
+                        <li><span>Where To Watch</span></li>
+                        <li>Smart TV</li>
+                        <li>Streaming Devices</li>
+                        <li>Mobile App</li>
+                        <li>Desktop App</li>
+                        <li>Watch on the web</li>
+                        <li>Accessibility</li>
+                    </ul>
+                    <ul>
+                        <li><span>Partnes</span></li>
+                        <li>Distribution</li>
+                        <li>Content Providers</li>
+                        <li>Advertisers</li>
+                    </ul>
                 </div>
-            </div>
-            <div className="middle-footer">
-                <ul>
-                    <li>FAQ</li>
-                    <li>Investor Relations</li>
-                    <li>Privacy</li>
-                    <li>Speed Test</li>
-                </ul>
-                <ul>
-                    <li>Help Center</li>
-                    <li>Jobs</li>
-                    <li>Cookie Preferences</li>
-                    <li>Legal Notices</li>
-                </ul>
-                <ul>
-                    <li>Account</li>
-                    <li>Way to Watchs</li>
-                    <li>Corporate Information</li>
-                    <li>Only on Netflix</li>
-                </ul>
-                <ul>
-                    <li>Media Center</li>
-                    <li>Terms of Use</li>
-                    <li>Contact US</li>
-                </ul>
-            </div>
-            <div className="bottom-footer">
-                &copy; {new Date().getFullYear()} All Rights Reserved
+                <div className="bottom-footer">
+                    <div className="coppy">&copy; {new Date().getFullYear()} All Rights Reserved</div>
+                    <div className="footer-icons">
+                        <span><FacebookIcon /></span>
+                        <span><InstagramIcon /></span>
+                        <span><TwitterIcon /></span>
+                        <span><YouTubeIcon /></span>
+                    </div>
+                </div>
             </div>
         </div>
     )

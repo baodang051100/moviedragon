@@ -38,13 +38,13 @@ const MovieList = () => {
                     <caption>List Movie</caption>
                     <tbody>
                         <tr>
-                            <th>Title</th>
-                            <th>Desc</th>
-                            <th>Genre</th>
-                            <th>Img</th>
+                            <th>Tên</th>
+                            <th>Mô tả</th>
+                            <th>Thể loại</th>
+                            <th>Hình ảnh</th>
                             <th>Series</th>
-                            <th>Year</th>
-                            <th>Action</th>
+                            <th>Năm</th>
+                            <th>Hành động</th>
                         </tr>
                         {show.map((movie, i) => {
                             return (

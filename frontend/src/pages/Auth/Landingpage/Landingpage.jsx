@@ -3,6 +3,7 @@ import "./Landingpage.scss";
 import List from '../list/List';
 import axios from 'axios';
 import Fearture from '../../../components/Auth/Fearture/Fearture';
+import { Header } from '../../../components/Auth';
 
 const Landingpage = ({ type }) => {
     const [lists, setLists] = useState([]);

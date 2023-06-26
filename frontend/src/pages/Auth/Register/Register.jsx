@@ -73,10 +73,10 @@ const Register = () => {
     return (
         <section className={styles.container}>
             <div className={styles.register}>
-                <div className={styles.title}><h1>Register</h1></div>
+                <div className={styles.title}><h1>Đăng ký</h1></div>
                 <form onSubmit={onSubmit}>
                     <div className={styles.inputBox}>
-                        <label htmlFor="">Username</label>
+                        <label htmlFor="">Tên người dùng</label>
                         <input
                             type="text"
                             placeholder='Please enter your username...'
@@ -109,7 +109,7 @@ const Register = () => {
                         />
                     </div>
                     <div className={styles.inputBox}>
-                        <label htmlFor="">Profile Picture</label>
+                        <label htmlFor="">Ảnh đại diện</label>
                         <input
                             type="file"
                             id='profilePic'
@@ -139,7 +139,7 @@ const Register = () => {
                                 >
                                     Sign Up
                                 </Button>
-                                <label style={{ color: "green" }}>Done Register!</label>
+                                <label style={{ color: "green" }}>Đăng ký thành công!</label>
                             </div>
                         ) : (
                             <div className={styles.btnAction}>
@@ -151,12 +151,12 @@ const Register = () => {
                                 >
                                     Upload
                                 </Button>
-                                <label style={{ color: "red" }}>Register Not Finished yet!</label>
+                                <label style={{ color: "red" }}>Đăng ký chưa được thực hiện!</label>
                             </div>
                         )}
                         <div className={styles.links}>
-                            <span>Do you already have an account?</span>
-                            <Link to="/login">Login</Link>
+                            <span>Bạn đã có tài khoản?</span>
+                            <Link to="/login">Đăng nhập</Link>
                         </div>
                     </div>
                 </form>

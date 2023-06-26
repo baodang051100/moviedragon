@@ -96,14 +96,12 @@ const listSlice = createSlice({
                 state.loading = true
             })
             .addCase(createList.fulfilled, (state, action) => {
-                console.log("create list success")
                 state.list = action.payload
                 state.show = action.payload
                 state.loading = false
             })
             .addCase(createList.rejected, (state) => {
                 state.loading = false
-                console.log("create list failed")
             })
             //------------------------------------------------------------------------------
             //GET
@@ -111,13 +109,11 @@ const listSlice = createSlice({
                 state.loading = true
             })
             .addCase(getAllList.fulfilled, (state, action) => {
-                console.log("get list success")
                 state.show = action.payload
                 state.loading = false
             })
             .addCase(getAllList.rejected, (state) => {
                 state.loading = false
-                console.log("get list failed")
             })
             //------------------------------------------------------------------------------
             //UPDATE
@@ -125,13 +121,11 @@ const listSlice = createSlice({
                 state.loading = true
             })
             .addCase(updateList.fulfilled, (state, action) => {
-                console.log("update list success")
                 state.selectList = action.payload
                 state.loading = false
             })
             .addCase(updateList.rejected, (state) => {
                 state.loading = false
-                console.log("update list failed")
             })
             //------------------------------------------------------------------------------
             //DELTE
@@ -139,13 +133,11 @@ const listSlice = createSlice({
                 state.loading = true
             })
             .addCase(deleteList.fulfilled, (state, action) => {
-                console.log("delete list success")
                 state.selectList = action.payload
                 state.loading = false
             })
             .addCase(deleteList.rejected, (state) => {
                 state.loading = false
-                console.log("delete list failed")
             })
     }
 });

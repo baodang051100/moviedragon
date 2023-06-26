@@ -4,6 +4,7 @@ import movieReducer from "./slice/movieSlice";
 import listReducer from "./slice/listSlice";
 import userReducer from "./slice/userSlice";
 import myListReducer from "./slice/myListSlice"
+import searchSlice from "./slice/searchSlice";
 
 const rootReducer = combineReducers({
     auth: authReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
     list: listReducer,
     user: userReducer,
     myList: myListReducer,
+    search: searchSlice,
 })
 
 const store = configureStore({

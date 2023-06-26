@@ -5,7 +5,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.9;
+            opacity: 1;
         }
     }
     .secondContainer {
@@ -19,6 +19,7 @@
             text-align: center;
             h1 {
                 font-size: 4rem;
+                text-transform: uppercase;
             }
             span {
                 font-size: 1.3rem;
@@ -55,7 +56,12 @@
             object-fit: cover;
         }
         .thirdContent {
-            background-image: linear-gradient(to bottom, rgba(128,128,128,0.5), rgba(128,128,128,0.5) 60%, rgba(128,128,128,0.5) 100%);
+            background-image: linear-gradient(
+                to bottom,
+                rgba(128, 128, 128, 0.5),
+                rgba(128, 128, 128, 0.5) 60%,
+                rgba(128, 128, 128, 0.5) 100%
+            );
             width: 100%;
             height: 100%;
             position: absolute;

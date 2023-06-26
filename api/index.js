@@ -31,8 +31,8 @@ app.use("/api/movie", movieRoute);
 app.use("/api/lists", listRoute);
 app.use("/api/myList", myListRoute);
 
-const PORT = process.env.PORT || 8000;
-const host = "127.0.0.1";
+let PORT = process.env.PORT || 8000;
+// const host = "127.0.0.1";
 const server = http.createServer(app);
 
 mongoose.set('strictQuery', false);
@@ -41,7 +41,7 @@ mongoose.connect(process.env.MONGODB_URL, {
     useUnifiedTopology: true,
 }).then(() => {
     console.log("DB connection successfully");
-    server.listen(PORT, host, () => {
+    server.listen(PORT, () => {
         console.log(`Server is running on port ${PORT}`);
     });
 }).catch((err) => {

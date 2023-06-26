@@ -38,7 +38,7 @@ const Watch = () => {
             <div className={styles.back}>
                 <Link to="/vn">
                     <KeyboardBackspaceIcon />
-                    <h3>Back</h3>
+                    <h3>Trở về</h3>
                 </Link>
             </div>
             <div className={styles.watch}>

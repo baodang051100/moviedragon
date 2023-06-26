@@ -96,54 +96,46 @@ const movieSlice = createSlice({
                 state.loading = true
             })
             .addCase(createMovie.fulfilled, (state, action) => {
-                console.log("create movie success")
                 state.movie = action.payload
                 state.show = action.payload
                 state.loading = false
             })
             .addCase(createMovie.rejected, (state) => {
                 state.loading = false
-                console.log("create movie failed")
             })
             //-----------------------------GET ALL--------------------------------
             .addCase(getAll.pending, (state) => {
                 state.loading = true
             })
             .addCase(getAll.fulfilled, (state, action) => {
-                console.log("get movie success")
                 state.show = action.payload
                 state.loading = false
                 localStorage.setItem("data", JSON.stringify(state.show))
             })
             .addCase(getAll.rejected, (state) => {
                 state.loading = false
-                console.log("get movie failed")
             })
             //---------------------------GET RANDOM MOVIE-------------------------------
             .addCase(getMovieRandom.pending, (state) => {
                 state.loading = true
             })
             .addCase(getMovieRandom.fulfilled, (state, action) => {
-                console.log("get random movie success")
                 state.show = action.payload
                 state.loading = false
             })
             .addCase(getMovieRandom.rejected, (state) => {
                 state.loading = false
-                console.log("get random movie failed")
             })
             //---------------------------DELETE MOVIE-------------------------------
             .addCase(deleteMovie.pending, (state) => {
                 state.loading = true
             })
             .addCase(deleteMovie.fulfilled, (state, action) => {
-                console.log("delete movie success")
                 state.show = action.payload
                 state.loading = false
             })
             .addCase(deleteMovie.rejected, (state) => {
                 state.loading = false
-                console.log("delete movie failed")
             })
     }
 });

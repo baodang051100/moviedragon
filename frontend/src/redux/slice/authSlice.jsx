@@ -63,7 +63,6 @@ const authSlice = createSlice({
             toast.success("Logout success");
             localStorage.removeItem("user");
             localStorage.removeItem("token");
-
             localStorage.setItem("user", JSON.stringify(state.user));
             localStorage.setItem("token", JSON.stringify(state.token));
         }

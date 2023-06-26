@@ -50,7 +50,7 @@ const Login = () => {
     return (
         <section className={styles.container}>
             <div className={styles.login}>
-                <div className={styles.title}><h1>Login</h1></div>
+                <div className={styles.title}><h1>Đăng nhập</h1></div>
                 <form onSubmit={onSubmit}>
                     <div className={styles.inputBox}>
                         <label htmlFor="" className={styles.userLabel}>Email</label>
@@ -87,8 +87,8 @@ const Login = () => {
                             Sign In
                         </Button>
                         <div className={styles.links}>
-                            <span>Do you already have an account?</span>
-                            <Link to="/register">Register</Link>
+                            <span>Bạn chưa có tài khoản?</span>
+                            <Link to="/register">Đăng ký</Link>
                         </div>
                     </div>
                 </form>

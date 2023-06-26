@@ -10,10 +10,10 @@ import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import { Link } from 'react-router-dom';
 
 const menuItems = [
-    { name: "Home", link: "admin", icon: <HomeIcon /> },
+    { name: "Trang Chủ", link: "vn", icon: <HomeIcon /> },
     { name: "User", link: "admin/user", icon: <PersonIcon /> },
-    { name: "Movie", link: "admin/movie", icon: <PlayCircleIcon /> },
-    { name: "List", link: "admin/list", icon: <FormatListBulletedIcon /> },
+    { name: "Phim", link: "admin/movie", icon: <PlayCircleIcon /> },
+    { name: "Danh sách phim", link: "admin/list", icon: <FormatListBulletedIcon /> },
 ]
 
 const SidebarAdmin = () => {
@@ -29,14 +29,13 @@ const SidebarAdmin = () => {
                     />
                     {menuItems.map((items, id) => {
                         return (
-                            <MenuItem
-                                icon={items.icon}
-                                key={id}
-                            >
-                                <Link to={{ pathname: "/" + items.link }}>
+                            <Link to={{ pathname: "/" + items.link }} key={id}>
+                                <MenuItem
+                                    icon={items.icon}
+                                >
                                     <h2>{items.name}</h2>
-                                </Link>
-                            </MenuItem>
+                                </MenuItem>
+                            </Link>
                         )
                     })}
                 </Menu>

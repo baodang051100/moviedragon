@@ -50,11 +50,11 @@ const ListItem = ({ item }) => {
                 <ul className="listAction">
                     <li>
                         <ShareIcon />
-                        <span>Share</span>
+                        <span>Chia sẻ</span>
                     </li>
                     <li onClick={onClickAddMyList}>
                         <PlaylistAddIcon />
-                        <span>Add Playlist</span>
+                        <span>Thêm vào danh sách</span>
                     </li>
                 </ul>
                 <div className="listWatch" onClick={() => handleClick(movie._id)}>
