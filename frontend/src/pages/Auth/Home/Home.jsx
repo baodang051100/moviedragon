@@ -35,7 +35,7 @@ const Home = () => {
             <div className="thirdContainer">
                 <div className="thirdContent">
                     <div className="content">
-                        <h2>Hàng ngàn tiêu đề</h2>
+                        <h2>Hàng ngàn phim</h2>
                         <span>
                             Xem phim và chương trình truyền hình tuyệt vời miễn phí. Không có phí đăng ký và không có thẻ tín dụng.
                             Chỉ hàng nghìn giờ phát trực tuyến nội dung video từ các hãng phim như Paramount, Lionsgate, MGM,...
