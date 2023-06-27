@@ -1,3 +1,18 @@
 .App {
     position: relative;
 }
+
+:root {
+    --bg-dark-color: rgb(20, 20, 20);
+    --bg-light-color: white;
+    --text-light-color: black;
+    --text-dark-color: white;
+}
+body.light {
+    --background-color: var(--bg-light-color);
+    --text-color: var(--text-light-color);
+}
+body.dark {
+    --background-color: var(--bg-dark-color);
+    --text-color: var(--text-dark-color);
+}

@@ -1,35 +1,64 @@
-.back {
-    a {
-        display: flex;
-        align-items: center;
-        padding: 1rem;
-    }
-}
-.watch {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    .video {
-        width: 100%;
-        height: 100vh;
-    }
-    .videoInfo {
-        display: flex;
-        flex-direction: column;
-        padding: 1rem;
-        .category {
+.watchMovie {
+    background-color: rgb(20, 20, 20);
+    color: #eee;
+    .back {
+        a {
             display: flex;
             align-items: center;
-            .genre,
-            .year {
-                margin: 0.5rem;
-            }
+            padding: 1rem;
+            color: #eee;
         }
-        span {
-            padding: 1rem 0;
-            .title {
-                font-family: "Roboto", sans-serif;
+    }
+    .watch {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        .video {
+            width: 100%;
+            height: 100vh;
+        }
+        .videoInfo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            margin: auto;
+            .image {
+                img {
+                    max-width: 100%;
+                    width: auto;
+                    height: 100%;
+                }
+            }
+            .content {
+                display: flex;
+                flex-direction: column;
+                padding: 0 1rem;
+                .title {
+                    font-family: "Roboto", sans-serif;
+                    text-transform: uppercase;
+                    padding: 1rem;
+                }
+                .category {
+                    display: flex;
+                    align-items: center;
+                    padding: 1rem;
+                    .genre,
+                    .year {
+                        margin: 0.5rem;
+                        background-color: rgb(255, 0, 0);
+                        border-radius: 1rem;
+                        span {
+                            padding: 1rem;
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+                .desc {
+                    padding: 1rem;
+                    font-size: 1.2rem;
+                }
             }
         }
     }

@@ -40,16 +40,16 @@ const NewList = () => {
                 <Link to="/admin/list">
                     <Button>
                         <KeyboardBackspaceIcon />
-                        <span>Back</span>
+                        <span>Trở về</span>
                     </Button>
                 </Link>
             </div>
             <section className='newListContainer'>
                 <div className='newList'>
-                    <div className="newListTitle"><h1>New Movie</h1></div>
+                    <div className="newListTitle"><h1>Danh sách phim mới</h1></div>
                     <form className="newListForm">
                         <div className="addNewList">
-                            <label>Title</label>
+                            <label>Tên</label>
                             <input
                                 type="text"
                                 id='title'
@@ -58,14 +58,14 @@ const NewList = () => {
                             />
                         </div>
                         <div className="addNewList">
-                            <label>Type</label>
+                            <label>Kiểu</label>
                             <select name='type' id='type' className='type' onChange={handleChange} >
                                 <option value="movie">Movie</option>
                                 <option value="series">Series</option>
                             </select>
                         </div>
                         <div className="addNewList">
-                            <label>Genre</label>
+                            <label>Thể loại</label>
                             <input
                                 type="text"
                                 id='genre'
@@ -74,7 +74,7 @@ const NewList = () => {
                             />
                         </div>
                         <div className="addNewList">
-                            <label>Content</label>
+                            <label>Danh sách phim</label>
                             <select multiple name='content' onChange={handleSelect}>
                                 {show.map((movie) => (
                                     <option
@@ -93,7 +93,7 @@ const NewList = () => {
                                 className='addProductButton'
                                 onClick={handleSubmit}
                             >
-                                Create
+                                Thêm
                             </Button>
                         </div>
                     </form>

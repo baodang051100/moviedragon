@@ -2,11 +2,8 @@ import React, { useEffect, useMemo, useState } from 'react';
 import axios from "axios";
 import ListItem from '../ListItem/ListItem';
 import "./Search.scss";
-import TrendingUpTwoToneIcon from '@mui/icons-material/TrendingUpTwoTone';
-import LocalFireDepartmentOutlinedIcon from '@mui/icons-material/LocalFireDepartmentOutlined';
-import StarOutlineIcon from '@mui/icons-material/StarOutline';
-import AddIcon from '@mui/icons-material/Add';
 import { useSelector } from 'react-redux';
+
 
 const Search = () => {
     const [dataMovie, setDataMovie] = useState([]);
@@ -28,18 +25,6 @@ const Search = () => {
         }
         getSearch();
     });
-
-    const [selectedCategory, setSelectedCategory] = useState();
-    const handleCategoryChange = (e) => [
-        setSelectedCategory(e.targer.value)
-    ]
-    const getFilteredList = () => {
-        if(!selectedCategory) {
-            return dataMovie;
-        }
-        return dataMovie.filter((item) => item.genre === selectedCategory);
-    }
-    var filteredList = useMemo(getFilteredList, [selectedCategory, dataMovie]);
 
     const searchInfo = useSelector(state => state.search.searchInfo)
     return (

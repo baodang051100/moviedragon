@@ -35,14 +35,15 @@ const Home = () => {
             <div className="thirdContainer">
                 <div className="thirdContent">
                     <div className="content">
-                        <h2>Thousands Title</h2>
+                        <h2>Hàng ngàn tiêu đề</h2>
                         <span>
-                            Watch amazing movies and TV shows for free. No Subscription fees,
-                            and no credit cards. Just thousands of hours of streaming video content
-                            from studios like Paramount, Lionstage, MGM and more
+                            Xem phim và chương trình truyền hình tuyệt vời miễn phí. Không có phí đăng ký và không có thẻ tín dụng.
+                            Chỉ hàng nghìn giờ phát trực tuyến nội dung video từ các hãng phim như Paramount, Lionsgate, MGM,...
                         </span>
                         <div className="contentButton">
-                            <Button variant='contained'>Browser Title</Button>
+                            <Link to="/login">
+                                <Button variant='contained'>Xem Thêm</Button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -50,12 +51,11 @@ const Home = () => {
             </div>
             <div className="homeBottom">
                 <div className="bottomContent">
-                    <h1>Get an account today</h1>
+                    <h1>Nhận tài khoản ngay hôm nay</h1>
                     <span>
-                        Access free content on all of your device, sync your list and
-                        continue watching anywhere.
+                        Truy cập nội dung miễn phí trên tất cả thiết bị của bạn, đồng bộ hóa danh sách của bạn và tiếp tục xem ở bất cứ đâu.
                     </span>
-                    <Link to="/register"><Button variant='contained'>Register Free</Button></Link>
+                    <Link to="/register"><Button variant='contained'>Đăng ký miễn phí</Button></Link>
                 </div>
             </div>
         </div>

@@ -80,32 +80,32 @@ const NewProduct = () => {
                 <Link to="/admin/movie">
                     <Button>
                         <KeyboardBackspaceIcon />
-                        <span>Back</span>
+                        <span>Trở về</span>
                     </Button>
                 </Link>
             </div>
             <div className="newMovieContainer">
                 <div className='addMovie'>
                     <div className="addMovieTitle">
-                        <h1>New Movie</h1>
+                        <h1>Thêm Phim Mới</h1>
                     </div>
                     <form className="addProductForm" onSubmit={handleSubmit}>
                         <div className="formItem">
                             <div className="formLeft">
                                 <div className="addMovieBox">
-                                    <label>Title</label>
-                                    <input type="text" placeholder='Title' name='title' onChange={handleChange} />
+                                    <label>Tên phim</label>
+                                    <input type="text" placeholder='Tên' name='title' onChange={handleChange} />
                                 </div>
                                 <div className="addMovieBox">
-                                    <label>Description</label>
-                                    <input type="text" placeholder='Description' name='desc' onChange={handleChange} />
+                                    <label>Mô tả</label>
+                                    <input type="text" placeholder='Mô tả' name='desc' onChange={handleChange} />
                                 </div>
                                 <div className="addMovieBox">
-                                    <label>Year</label>
-                                    <input type="text" placeholder='Year' name='year' onChange={handleChange} />
+                                    <label>Năm</label>
+                                    <input type="text" placeholder='Năm' name='year' onChange={handleChange} />
                                 </div>
                                 <div className="addMovieBox">
-                                    <label>Genre</label>
+                                    <label>Thể loại</label>
                                     <select id="genre" name='genre' onChange={handleChange}>
                                         <option>Please select genre ....</option>
                                         <option value="Action">Action</option>
@@ -125,15 +125,11 @@ const NewProduct = () => {
                                     </select>
                                 </div>
                                 <div className="addMovieBox">
-                                    <label>Duration</label>
-                                    <input type="text" placeholder='Duration' name='duration' onChange={handleChange} />
+                                    <label>Số tập</label>
+                                    <input type="text" placeholder='Số tập' name='limit' onChange={handleChange} />
                                 </div>
                                 <div className="addMovieBox">
-                                    <label>Limit</label>
-                                    <input type="text" placeholder='limit' name='limit' onChange={handleChange} />
-                                </div>
-                                <div className="addMovieBox">
-                                    <label>Is Series</label>
+                                    <label>Series</label>
                                     <select name="isSeries" id="isSeries" onChange={handleChange}>
                                         <option value="false">No</option>
                                         <option value="true">Yes</option>
@@ -142,7 +138,7 @@ const NewProduct = () => {
                             </div>
                             <div className="formRight">
                                 <div className="addMovieBox">
-                                    <label>Image</label>
+                                    <label>Hình ảnh</label>
                                     <input
                                         type="file"
                                         id='img'
@@ -151,7 +147,7 @@ const NewProduct = () => {
                                     />
                                 </div>
                                 <div className="addMovieBox">
-                                    <label>Title Image</label>
+                                    <label>Hình ảnh tiêu đề</label>
                                     <input
                                         type="file"
                                         id='imgTitle'
@@ -160,7 +156,7 @@ const NewProduct = () => {
                                     />
                                 </div>
                                 <div className="addMovieBox">
-                                    <label>Thumbnail Image</label>
+                                    <label>Hình ảnh thu nhỏ</label>
                                     <input
                                         type="file"
                                         id='imgSm'
@@ -195,9 +191,9 @@ const NewProduct = () => {
                                     onClick={handleSubmit}
                                     type='submit'
                                 >
-                                    Create
+                                    Thêm
                                 </Button>
-                                <label style={{ color: "green" }}>Done Upload!</label>
+                                <label style={{ color: "green" }}>Tải lên thành công!</label>
                             </div>
                         ) : (
                             <div className='activeButton'>
@@ -207,9 +203,9 @@ const NewProduct = () => {
                                     className='addProductButton'
                                     onClick={handleUpload}
                                 >
-                                    Upload
+                                    Tải lên
                                 </Button>
-                                <label style={{ color: "red" }}>Uploading Not Finished yet!</label>
+                                <label style={{ color: "red" }}>Tải lên chưa hoàn thành!</label>
                             </div>
                         )}
                     </form>

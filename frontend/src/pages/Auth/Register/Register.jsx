@@ -7,6 +7,7 @@ import { register } from '../../../redux/slice/authSlice';
 import { toast } from "react-toastify";
 import { storage } from '../../../firebase';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
 const Register = () => {
@@ -79,7 +80,7 @@ const Register = () => {
                         <label htmlFor="">Tên người dùng</label>
                         <input
                             type="text"
-                            placeholder='Please enter your username...'
+                            placeholder='Vui lòng nhập tên người dùng...'
                             id='username'
                             name='username'
                             onChange={onChange}
@@ -90,7 +91,7 @@ const Register = () => {
                         <label htmlFor="">Email</label>
                         <input
                             type="text"
-                            placeholder='Please enter your email...'
+                            placeholder='Vui lòng nhập email...'
                             id='email'
                             name='email'
                             onChange={onChange}
@@ -101,7 +102,7 @@ const Register = () => {
                         <label htmlFor="">Password</label>
                         <input
                             type="password"
-                            placeholder='Please enter your password...'
+                            placeholder='Vui lòng nhập mật khẩu...'
                             id='password'
                             name='password'
                             onChange={onChange}
@@ -137,7 +138,7 @@ const Register = () => {
                                     type='submit'
                                     onClick={onSubmit}
                                 >
-                                    Sign Up
+                                    Đăng ký
                                 </Button>
                                 <label style={{ color: "green" }}>Đăng ký thành công!</label>
                             </div>
@@ -149,7 +150,7 @@ const Register = () => {
                                     className={styles.btn}
                                     onClick={handleUpload}
                                 >
-                                    Upload
+                                    Tải lên
                                 </Button>
                                 <label style={{ color: "red" }}>Đăng ký chưa được thực hiện!</label>
                             </div>
@@ -160,6 +161,12 @@ const Register = () => {
                         </div>
                     </div>
                 </form>
+                <div className={styles.back}>
+                    <ArrowBackIcon sx={{ color: "#eee" }} />
+                    <Link to="/">
+                        Quay về
+                    </Link>
+                </div>
             </div>
         </section>
     )

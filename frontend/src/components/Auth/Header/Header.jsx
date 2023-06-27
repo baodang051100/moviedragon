@@ -13,7 +13,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { updateSearch } from '../../../redux/slice/searchSlice';
 import ClearIcon from '@mui/icons-material/Clear';
-import Darkmode from '../../Darkmode/Darkmode';
 
 const Header = () => {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -110,8 +109,6 @@ const Header = () => {
                         <div className={click ? 'navbar-moblie' : 'navbar-left-item'}>
                             <ul >
                                 <li><Link to="/vn">Trang chủ</Link></li>
-                                {/* <li><Link to="/vn/movies">Movie</Link></li>
-                                <li><Link to="/vn/series">Series</Link></li> */}
                                 <li><Link to="/vn/mylist">Danh sách xem sau</Link></li>
                             </ul>
                         </div>
@@ -147,7 +144,7 @@ const Header = () => {
                                 onMouseEnter={handleMouserEnter}
                                 onMouseLeave={handleMouserLeave}
                             >
-                                <NotificationsIcon sx={{ width: "2rem", height: "2rem" }} />
+                                <NotificationsIcon sx={{ width: "1.5rem", height: "1.5rem" }} />
                             </div>
                             {showHover && (
                                 <div className="dropdown-notifications">

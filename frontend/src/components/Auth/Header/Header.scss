@@ -21,7 +21,7 @@ header {
         .navbar-left {
             display: flex;
             justify-content: space-between;
-            width: 30%;
+            width: 50%;
             .navbarToggle {
                 display: none;
             }
@@ -121,9 +121,9 @@ header {
                     align-items: center;
                     background-color: black;
                     color: white;
-                    top: 5rem;
+                    top: 4.5rem;
                     max-width: 100%;
-                    right: 6.5rem;
+                    right: 4.2rem;
                     border-top: 2px solid #fff;
                     .dropdown-content {
                         display: flex;

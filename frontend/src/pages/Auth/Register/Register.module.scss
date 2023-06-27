@@ -79,8 +79,17 @@ a {
                     padding: 1rem;
                     a {
                         color: #fff;
+                        text-decoration: underline;
                     }
                 }
+            }
+        }
+        .back {
+            display: flex;
+            align-items: center;
+            a {
+                color: #eee;
+                text-decoration: underline;
             }
         }
     }

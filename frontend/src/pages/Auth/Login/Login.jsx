@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout } from '../../../redux/slice/authSlice';
 import { toast } from 'react-toastify';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const Login = () => {
 
@@ -53,7 +54,7 @@ const Login = () => {
                 <div className={styles.title}><h1>Đăng nhập</h1></div>
                 <form onSubmit={onSubmit}>
                     <div className={styles.inputBox}>
-                        <label htmlFor="" className={styles.userLabel}>Email</label>
+                        <label htmlFor="" className={styles.userLabel}>Tên đăng nhập</label>
                         <input
                             type="text"
                             id='email'
@@ -61,11 +62,11 @@ const Login = () => {
                             value={email}
                             onChange={onChange}
                             className={styles.userInput}
-                            placeholder='Enter your email...'
+                            placeholder='Nhập email của bạn.....'
                         />
                     </div>
                     <div className={styles.inputBox}>
-                        <label htmlFor="" className={styles.userLabel}>Password</label>
+                        <label htmlFor="" className={styles.userLabel}>Mật khẩu</label>
                         <input
                             type="password"
                             id='password'
@@ -73,7 +74,7 @@ const Login = () => {
                             value={password}
                             onChange={onChange}
                             className={styles.userInput}
-                            placeholder='Enter your password...'
+                            placeholder='Nhập mật khẩu của bạn....'
                         />
                     </div>
                     <div className={styles.btnLogin}>
@@ -84,7 +85,7 @@ const Login = () => {
                             disabled={isLoading}
                             type='submit'
                         >
-                            Sign In
+                            Đăng nhập
                         </Button>
                         <div className={styles.links}>
                             <span>Bạn chưa có tài khoản?</span>
@@ -92,6 +93,12 @@ const Login = () => {
                         </div>
                     </div>
                 </form>
+                <div className={styles.back}>
+                    <ArrowBackIcon sx={{color: "#eee"}} />
+                    <Link to="/">
+                        Quay về
+                    </Link>
+                </div>
             </div>
         </section>
     )
