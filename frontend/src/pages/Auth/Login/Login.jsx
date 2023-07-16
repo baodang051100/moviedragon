@@ -36,7 +36,7 @@ const Login = () => {
         dispatch(login(userData)).then(() => {
             if (localStorage.getItem("user") !== null) {
                 toast.success(`Logged in as ${userData.email}`)
-                navigate(`/vn`)
+                navigate("/vn")
             } else {
                 toast.error(`Logged in as ${userData.email}`);
             }
