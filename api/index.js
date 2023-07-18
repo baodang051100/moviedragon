@@ -32,7 +32,7 @@ app.use("/api/lists", listRoute);
 app.use("/api/myList", myListRoute);
 
 let PORT = process.env.PORT || 8000;
-// const host = "127.0.0.1";
+//const host = "14.225.192.136";
 const server = http.createServer(app);
 
 mongoose.set("strictQuery", false);
